@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light">
-      <body className={montserrat.className}>
+      <body
+        className={`{$montserrat.className} bg-gradient-to-r from-indigo-900 via-purple-700 to-red-600 min-h-screen`}
+      >
         <QueryQueryProvider>{children}</QueryQueryProvider>
       </body>
     </html>
