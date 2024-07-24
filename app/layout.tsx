@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
+import QueryQueryProvider from '@/components/QueryProvider';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light">
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}>
+        <QueryQueryProvider>{children}</QueryQueryProvider>
+      </body>
     </html>
   );
 }
