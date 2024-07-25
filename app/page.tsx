@@ -45,7 +45,7 @@ export default function Home() {
         Welcome to Star Wars Directory
       </h1>
       <p className="text-center p-4 text-white">
-        You can search any Star Wars character by name, home-world, or species.
+        You can search any Star Wars character by name, planets, or species.
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col md:flex-row gap-4 p-4">
@@ -84,7 +84,7 @@ export default function Home() {
           <div>
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary w-full"
               disabled={isLoading}
             >
               Search

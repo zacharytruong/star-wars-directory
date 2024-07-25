@@ -27,7 +27,7 @@ export default function DataCardGrid({
           {/*Initial page load, display message to encourage users to action*/}
           {!Array.isArray(dataCards) && (
             <div className="text-white w-full">
-              Enrich your Star Wars with our data.
+              Enrich your Star Wars knowledge with our data.
             </div>
           )}
           {/*Only display grid title when data is available.*/}
@@ -67,7 +67,7 @@ export default function DataCardGrid({
                     </h2>
                     {searchMode === 'people' && (
                       <div>
-                        Home-world: <AdditionalData url={dataCard.homeworld} />
+                        Homeworld: <AdditionalData url={dataCard.homeworld} />
                       </div>
                     )}
                     {searchMode === 'people' && (
