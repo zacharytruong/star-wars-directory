@@ -7,9 +7,8 @@ import {
   SearchFormData,
 } from '@/customTypes';
 import { useState } from 'react';
-import { DataCardGrid, ErrorFetching } from '@/components';
+import { DataCardGrid, ErrorFetching, SearchForm } from '@/components';
 import { getData } from '@/lib';
-import { FaSearchengin } from 'react-icons/fa';
 
 export default function Home() {
   const {
@@ -49,51 +48,12 @@ export default function Home() {
         You can search for Star Wars information by character name, planet, or
         species.
       </p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col md:flex-row gap-4 m-4 p-4 glass rounded-xl">
-          <div>
-            <select
-              className="select select-bordered w-full md:w-auto"
-              defaultValue=""
-              disabled={isLoading}
-              {...register('searchField', { required: true })}
-            >
-              <option disabled value="">
-                Please select a category
-              </option>
-              <option value="people">Name</option>
-              <option value="planets">Planets</option>
-              <option value="species">Species</option>
-            </select>
-            {errors.searchField && (
-              <div className="text-error py-4">This field is required.</div>
-            )}
-          </div>
-          <div className="md:flex-1">
-            <label className="input input-bordered flex items-center gap-4 w-full">
-              <input
-                type="text"
-                disabled={isLoading}
-                className="grow"
-                placeholder="Enter your search here"
-                {...register('searchValue', { required: true })}
-              />
-            </label>
-            {errors.searchValue && (
-              <div className="text-error py-4">This field is required.</div>
-            )}
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="btn btn-primary w-full tracking-[0.75em]"
-              disabled={isLoading}
-            >
-              SEARCH <FaSearchengin />
-            </button>
-          </div>
-        </div>
-      </form>
+      <SearchForm
+        onSubmit={handleSubmit(onSubmit)}
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+      />
       <DataCardGrid
         dataCards={dataCards}
         isLoading={isLoading}
