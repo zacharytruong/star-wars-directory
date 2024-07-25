@@ -4,6 +4,7 @@ import axios from 'axios';
 export default function AdditionalData({ url }: { url?: string }) {
   const [isLoading, setIsLoading] = useState(false);
   const [additionalData, setAdditionalData] = useState<string>();
+
   const getAdditionalData = async (url?: string) => {
     setIsLoading(true);
     if (!url) {
@@ -18,9 +19,11 @@ export default function AdditionalData({ url }: { url?: string }) {
     }
     setIsLoading(false);
   };
+
   useEffect(() => {
     getAdditionalData(url);
   }, [url]);
+
   return (
     <div>
       {isLoading && <div className="skeleton h-4 w-full text-primary"></div>}
