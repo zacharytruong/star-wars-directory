@@ -88,3 +88,4 @@ For demo purposes, a live version of this project is deployed at Vercel:
   approach when authentication is needed.
 - Unit tests for lib utilities.
 - End-to-end tests for consistent quality deployment.
+- Implement analysis services such as MixPanels for analytical data and product improvement.
