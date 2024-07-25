@@ -1,10 +1,10 @@
 'use client';
 
-import getNameAbbreviation from '@/lib/getNameAbbreviation';
 import { CiCircleQuestion } from 'react-icons/ci';
 import { availableSearchFields, ResponseData } from '@/customTypes';
 import { startCase } from 'lodash';
-import { AdditionalData } from '@/components/AdditionalData';
+import { AdditionalData } from '@/components';
+import { getNameAbbreviation } from '@/lib';
 
 export default function DataCardGrid({
   dataCards,
