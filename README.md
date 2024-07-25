@@ -1,5 +1,9 @@
 Welcome to the open project Star Wars Directory.
 
+### Credits:
+
+Special thanks to the SWAPI team for the API: https://swapi.dev/
+
 ## Getting Started
 
 Clone the project from this rep:
@@ -43,12 +47,14 @@ For demo purposes, a live version of this project is deployed at Vercel:
 
 ### Project features:
 
+- Responsive designs, mobile-first approach.
 - Users can search the Star Wars universe by Name, Planet, or Species.
 - The results are displayed on a grid based on the search mode the user performed:
 - Name search mode: display the character's name, homeworld (if available), and species (if available).
 - Planets search mode: display the planet name, population number (if available), and climate (if available).
 - Species search mode: display the species name, classification (if available), and their language (if available).
 - The grid displays a "No Results" message if there are no results.
+- The form is auto-cleared after fetching.
 
 ### Available tech-stacks:
 
