@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
-import QueryQueryProvider from '@/components/QueryProvider';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -18,12 +17,12 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light">
-      <body
-        className={`{$montserrat.className} bg-gradient-to-r from-indigo-900 via-purple-700 to-red-600 min-h-screen`}
-      >
-        <QueryQueryProvider>{children}</QueryQueryProvider>
-      </body>
+    <html
+      lang="en"
+      data-theme="light"
+      className="bg-gradient-to-r from-indigo-900 via-purple-700 to-red-600"
+    >
+      <body className={montserrat.className}>{children}</body>
     </html>
   );
 }
