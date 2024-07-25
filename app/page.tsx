@@ -9,6 +9,7 @@ import {
 } from '@/customTypes';
 import { useState } from 'react';
 import { getData } from '@/lib/getData';
+import { ErrorFetching } from '@/components/ErrorFetching';
 
 export default function Home() {
   const {
@@ -19,9 +20,13 @@ export default function Home() {
   } = useForm<SearchFormData>({
     mode: 'onSubmit',
   });
+
   const [dataCards, setDataCards] = useState<ResponseData[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
+  // Search mode to control the display of data cards.
   const [searchMode, setSearchMode] = useState<availableSearchFields>();
+
   const onSubmit: SubmitHandler<SearchFormData> = async (formData) => {
     setIsLoading(true);
     try {
@@ -29,6 +34,7 @@ export default function Home() {
       setDataCards(data);
       setSearchMode(formData.searchField);
     } catch (error) {
+      setHasError(true);
       console.error(error);
     }
     reset();
@@ -92,6 +98,7 @@ export default function Home() {
         isLoading={isLoading}
         searchMode={searchMode}
       />
+      {hasError && <ErrorFetching />}
     </main>
   );
 }
