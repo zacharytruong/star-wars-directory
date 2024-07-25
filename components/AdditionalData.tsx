@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export function AdditionalData({ url }: { url?: string }) {
+export default function AdditionalData({ url }: { url?: string }) {
   const [isLoading, setIsLoading] = useState(false);
   const [additionalData, setAdditionalData] = useState<string>();
   const getAdditionalData = async (url?: string) => {

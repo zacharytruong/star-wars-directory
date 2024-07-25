@@ -6,9 +6,9 @@ import { ReactNode } from 'react';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Star Wars Character Directory',
+  title: 'Star Wars Directory',
   description:
-    'Directory of characters in the Star Wars universe using the Star Wars API',
+    'Directory of the Star Wars universe using the Star Wars API. Credits to SWAPI for the API: https://swapi.dev/',
 };
 
 export default function RootLayout({
