@@ -1,15 +1,14 @@
 'use client';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
-import DataCardGrid from '@/components/DataCardGrid';
 import {
   availableSearchFields,
   ResponseData,
   SearchFormData,
 } from '@/customTypes';
 import { useState } from 'react';
-import { getData } from '@/lib/getData';
-import { ErrorFetching } from '@/components/ErrorFetching';
+import { DataCardGrid, ErrorFetching } from '@/components';
+import { getData } from '@/lib';
 
 export default function Home() {
   const {

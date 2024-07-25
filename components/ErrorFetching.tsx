@@ -1,4 +1,4 @@
-export function ErrorFetching() {
+export default function ErrorFetching() {
   return (
     <div className="toast toast-start">
       <div role="alert" className="alert alert-error">
