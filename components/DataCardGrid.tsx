@@ -81,10 +81,7 @@ export default function DataCardGrid({
                             </span>
                           )}
                           {dataCard.species?.map((specie, index) => (
-                            <AdditionalData
-                              key={index}
-                              url={dataCard.homeworld}
-                            />
+                            <AdditionalData key={index} url={specie} />
                           ))}
                         </div>
                       </div>
