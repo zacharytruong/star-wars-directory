@@ -9,6 +9,7 @@ import {
 import { useState } from 'react';
 import { DataCardGrid, ErrorFetching } from '@/components';
 import { getData } from '@/lib';
+import { FaSearchengin } from 'react-icons/fa';
 
 export default function Home() {
   const {
@@ -45,7 +46,8 @@ export default function Home() {
         Welcome to Star Wars Directory
       </h1>
       <p className="text-center p-4 text-white">
-        You can search any Star Wars character by name, planets, or species.
+        You can search for Star Wars information by character name, planet, or
+        species.
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col md:flex-row gap-4 m-4 p-4 glass rounded-xl">
@@ -84,10 +86,10 @@ export default function Home() {
           <div>
             <button
               type="submit"
-              className="btn btn-primary w-full"
+              className="btn btn-primary w-full tracking-[0.75em]"
               disabled={isLoading}
             >
-              Search
+              SEARCH <FaSearchengin />
             </button>
           </div>
         </div>
