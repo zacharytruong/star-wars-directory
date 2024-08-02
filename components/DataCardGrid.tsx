@@ -18,12 +18,12 @@ export default function DataCardGrid({
   return (
     <>
       {isLoading && (
-        <div className="gap-4 m-4 p-4 glass rounded-xl min-h-40 flex items-center justify-center">
-          <span className="loading loading-spinner loading-lg text-primary"></span>
+        <div className="gap-4 m-4 p-4 rounded-xl min-h-40 flex items-center justify-center bg-opacity-25 bg-white shadow-xl backdrop-blur-2xl border border-opacity-20 border-white">
+          <span className="loading loading-spinner loading-lg text-white"></span>
         </div>
       )}
       {!isLoading && (
-        <div className="m-4 p-4 glass rounded-xl">
+        <div className="m-4 p-4 rounded-xl ">
           {/*Initial page load, display message to encourage users to action*/}
           {!Array.isArray(dataCards) && (
             <div className="text-white w-full">
@@ -46,13 +46,17 @@ export default function DataCardGrid({
               dataCards.map((dataCard: ResponseData) => (
                 <div
                   key={dataCard.name}
-                  className="card bg-base-100 shadow-xl transform transition-transform duration-300 hover:translate-y-2 hover:opacity-80 gap-8"
+                  tabIndex={0}
+                  aria-label={dataCard.name}
+                  className="card bg-white shadow-xl transform transition-transform duration-300 hover:translate-y-2 hover:opacity-80 gap-8
+                  bg-opacity-25 backdrop-blur-2xl border border-opacity-20 border-white
+                  "
                 >
                   <figure className="px-10 pt-10">
                     <div className="avatar">
                       <div className="avatar placeholder">
-                        <div className="bg-primary text-neutral-content w-24 rounded-full">
-                          <span className="text-3xl">
+                        <div className="bg-primary w-24 rounded-full">
+                          <span className="text-3xl text-amber-400">
                             {getNameAbbreviation(dataCard.name) || (
                               <CiCircleQuestion />
                             )}
@@ -62,21 +66,22 @@ export default function DataCardGrid({
                     </div>
                   </figure>
                   <div className="card-body items-center text-center">
-                    <h2 className="card-title p-4">
+                    <h2 className="card-title p-4 text-white">
                       {dataCard.name || 'No name found!'}
                     </h2>
                     {searchMode === 'people' && (
                       <div>
-                        Homeworld: <AdditionalData url={dataCard.homeworld} />
+                        <span className="text-white">Homeworld</span>:{' '}
+                        <AdditionalData url={dataCard.homeworld} />
                       </div>
                     )}
                     {searchMode === 'people' && (
                       <div>
-                        Species:
+                        <span className="text-white">Species:</span>
                         <div>
                           {/*Handle when no species data specified.*/}
                           {!Boolean(dataCard.species?.length) && (
-                            <span className="text-secondary">
+                            <span className="text-amber-400">
                               This data is a mystery.
                             </span>
                           )}
@@ -90,9 +95,9 @@ export default function DataCardGrid({
                       </div>
                     )}
                     {searchMode === 'planets' && (
-                      <div>
+                      <div className="text-white">
                         Population:{' '}
-                        <span>
+                        <span className="text-amber-400">
                           {Number.isFinite(Number(dataCard.population))
                             ? Number(dataCard.population).toLocaleString()
                             : 'Unknown'}
@@ -100,27 +105,27 @@ export default function DataCardGrid({
                       </div>
                     )}
                     {searchMode === 'planets' && (
-                      <div>
+                      <div className="text-white">
                         Climate:{' '}
-                        <span>
+                        <span className="text-amber-400">
                           {startCase(dataCard.climate).split(' ').join(', ') ||
                             'Unknown.'}
                         </span>
                       </div>
                     )}
                     {searchMode === 'species' && (
-                      <div>
+                      <div className="text-white">
                         Classification:{' '}
-                        <span>
+                        <span className="text-amber-400">
                           {startCase(dataCard.classification) ||
                             'Classification is unknown.'}
                         </span>
                       </div>
                     )}
                     {searchMode === 'species' && (
-                      <div>
+                      <div className="text-white">
                         Language:{' '}
-                        <span>
+                        <span className="text-amber-400">
                           {startCase(dataCard.language) ||
                             'Language is unknown.'}
                         </span>

@@ -23,8 +23,8 @@ export default function AdditionalData({ url }: { url?: string }) {
   }, [url]);
   return (
     <div>
-      {isLoading && <div className="skeleton h-4 w-full text-primary"></div>}
-      {!isLoading && <span className="text-secondary">{additionalData}</span>}
+      {isLoading && <div className="skeleton h-4 w-full text-amber-400"></div>}
+      {!isLoading && <span className="text-amber-400">{additionalData}</span>}
     </div>
   );
 }
